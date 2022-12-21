@@ -5,9 +5,9 @@ import boto3
 app = Flask(__name__)
 CORS(app)
 
-s3_client = boto3.client('s3')
+# s3_client = boto3.client('s3')
 
-BUCKET_NAME = '<your bucket name>'
+# BUCKET_NAME = '<your bucket name>'
 
 # @app.route('/')
 # def home():
@@ -20,11 +20,11 @@ def upload():
         fileName = img.filename
         fileExtension = fileName.split('.')[1]
         if (fileExtension in ['jpg', 'jpeg', 'JPG', 'JPEG', 'PNG', 'png']):
-            s3_client.put_object(
-                Body = img, 
-                Bucket = BUCKET_NAME, 
-                Key = fileName, 
-                ContentType = 'image/'+fileExtension)
+            # s3_client.put_object(
+            #     Body = img, 
+            #     Bucket = BUCKET_NAME, 
+            #     Key = fileName, 
+            #     ContentType = 'image/'+fileExtension)
             msg = "Upload done !"
         else:
             msg = "Error file type !"
